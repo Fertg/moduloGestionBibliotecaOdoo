@@ -1,0 +1,112 @@
+<odoo> 
+  <data> 
+    <record model="ir.ui.view" id="biblioteca.lectores_list_view">  
+      <field name="name">biblioteca.lectores.view.tree</field>  
+      <field name="model">biblioteca.lectores</field>   
+      <field name="arch" type="xml">  
+        <tree>  
+          <field name="dni"/>  
+          <field name="nombre"/>  
+          <field name="apellidos"/>  
+          <field name="fechaNac"/>  
+          <field name="fotografia"/> 
+          <field name="libro"/> 
+        </tree>  
+      </field>  
+    </record>  
+ 
+<record model="ir.ui.view" id="biblioteca.libro_list_view">  
+      <field name="name">biblioteca.libro.view.tree</field>  
+      <field name="model">biblioteca.libro</field>   
+      <field name="arch" type="xml">  
+        <tree>  
+          <field name="isbn"/>  
+          <field name="titulo"/>  
+          <field name="autor"/>  
+          <field name="abstract"/>  
+          <field name="editorial"/> 
+          <field name="fechaPub"/> 
+          <field name="lectores"/>  
+         <field name="estanteria"/> 
+        </tree>  
+      </field>  
+    </record>   
+ 
+<record model="ir.ui.view" id="biblioteca.estanteria_list_view">  
+      <field name="name">biblioteca.estanteria.view.tree</field>  
+      <field name="model">biblioteca.estanteria</field>   
+      <field name="arch" type="xml">  
+        <tree>  
+          <field name="identificador"/>  
+          <field name="nombre"/>  
+          <field name="plantas"/>  
+          <field name="listaLibros"/>     
+        </tree>  
+      </field>  
+    </record> 
+ 
+<record model="ir.ui.view" id="biblioteca.planta_list_view">  
+      <field name="name">biblioteca.planta.view.tree</field>  
+      <field name="model">biblioteca.planta</field>   
+      <field name="arch" type="xml">  
+        <tree>  
+          <field name="identificador"/>  
+          <field name="listadoEstanterias"/>   
+           <field name="nombre"/> 
+        </tree>  
+      </field>  
+    </record> 
+ 
+ 
+ 
+    <!-- actions opening views on models --> 
+     <record model="ir.actions.act_window" id="biblioteca.lectores_action_window"> 
+      <field name="name">Lectores de la Biblioteca</field> 
+      <field name="res_model">biblioteca.lectores</field> 
+      <field name="view_mode">tree,form</field> 
+    </record>  
+ 
+   <record model="ir.actions.act_window" id="biblioteca.libro_action_window"> 
+      <field name="name">Libros de la Biblioteca</field> 
+      <field name="res_model">biblioteca.libro</field> 
+      <field name="view_mode">tree,form</field> 
+    </record> 
+ 
+    <record model="ir.actions.act_window" id="biblioteca.estanteria_action_window"> 
+      <field name="name">Estanterias </field> 
+      <field name="res_model">biblioteca.estanteria</field> 
+      <field name="view_mode">tree,form</field> 
+    </record> 
+ 
+    <record model="ir.actions.act_window" id="biblioteca.planta_action_window"> 
+      <field name="name">Plantas </field> 
+      <field name="res_model">biblioteca.planta</field> 
+      <field name="view_mode">tree,form</field> 
+    </record>  
+ 
+ 
+
+ 
+    <!-- Top menu item --> 
+<menuitem name="Biblioteca" id="biblioteca.menu_root"/>  
+    <!-- menu categories --> 
+ 
+<menuitem name="Menu Lectores y Libros" id="biblioteca.menu_1" parent="biblioteca.menu_root"/>  
+<menuitem name="Menu Plantas y Estanterias" id="biblioteca.menu_2" parent="biblioteca.menu_root"/> 
+ 
+ 
+    <!-- actions --> 
+        <menuitem name="Gestión Lectores" id="biblioteca.menu_lectores" parent="biblioteca.menu_1"  
+        action="biblioteca.lectores_action_window"/>  
+       <menuitem name="Gestión Libros" id="biblioteca.menu_libro" parent="biblioteca.menu_1"  
+        action="biblioteca.libro_action_window"/> 
+        <menuitem name="Gestión Estanterias" id="biblioteca.menu_estanteria" parent="biblioteca.menu_2"  
+        action="biblioteca.estanteria_action_window"/> 
+        <menuitem name="Gestión Plantas" id="biblioteca.menu_planta" parent="biblioteca.menu_2"  
+        action="biblioteca.planta_action_window"/>               
+ 
+  <!--   <menuitem name="Server to list" id="biblioteca" parent="biblioteca.menu_2"  
+              action="biblioteca.action_server"/> --> 
+ 
+  </data> 
+</odoo>

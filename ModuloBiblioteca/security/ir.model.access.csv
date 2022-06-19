@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_biblioteca_libro,biblioteca.libro,model_biblioteca_libro,base.group_user,1,1,1,1
+access_biblioteca_lectores,biblioteca.lectores,model_biblioteca_lectores,base.group_user,1,1,1,1
+access_biblioteca_estanteria,biblioteca.estanteria,model_biblioteca_estanteria,base.group_user,1,1,1,1
+access_biblioteca_planta,biblioteca.planta,model_biblioteca_planta,base.group_user,1,1,1,1
+
+
+
